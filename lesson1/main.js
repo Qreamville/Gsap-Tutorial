@@ -1,4 +1,29 @@
 import gsap from "gsap";
 
-gsap.to(".img", { x: 400, y: 200, duration: 2, repeat: -1, yoyo: true });
-gsap.to(".img2", { x: 400, y: 200, duration: 2, delay: 2 });
+const playBtn = document.getElementById("play");
+const pauseBtn = document.getElementById("pause");
+const reverseBtn = document.getElementById("reverse");
+const restartBtn = document.getElementById("restart");
+
+let playAnimation = gsap.to(".img1", {
+  x: 800,
+  duration: 1,
+  ease: "linear",
+  paused: true,
+});
+
+playBtn.onclick = () => {
+  playAnimation.play();
+};
+
+pauseBtn.onclick = () => {
+  playAnimation.pause();
+};
+
+reverseBtn.onclick = () => {
+  playAnimation.reverse();
+};
+
+restartBtn.onclick = () => {
+  playAnimation.restart();
+};
